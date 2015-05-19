@@ -1,13 +1,29 @@
 
-<img src="./images/logo.png" class="displayed" alt="Laboratoire Galaxy-Swiss Bourdin" title="Laboratoire Galaxy-Swiss Bourdin" />
-<span href="#" class="button" id="toggle-login">Connexion</span>
+      <div class="wrapper">
+	<div class="container">
+                <img src="./images/logo.png" id="logoGSB" alt="Laboratoire Galaxy-Swiss Bourdin" title="Laboratoire Galaxy-Swiss Bourdin" />
+		<h3>Bienvenue sur le site GSB</h3>
+		
+		<form method="POST" action="index.php?uc=connexion&action=valideConnexion">
+			<input id="login" type="text" name="login" placeholder="Username">
+			<input id="mdp"  type="password"  name="mdp" placeholder="Password">
+			<button type="submit" id="login-button">Login</button>
+		</form>
+	</div>
+	
+	<ul class="bg-bubbles">
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+</div>      
 
-<div id="login">
-  <div id="triangle"></div>
-  <h1>Connexion</h1>
-  <form id="formMenu" method="POST" action="index.php?uc=connexion&action=valideConnexion">
-    <input type="text" placeholder="Identifiant" name="login" />
-    <input type="password" placeholder="Mot de passe" name="mdp" />
-    <input type="submit" value="Connexion" />
-  </form>
-</div>
+
+

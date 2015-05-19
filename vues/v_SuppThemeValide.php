@@ -1,0 +1,1 @@
+<h2>Le thème a bien &eacute;t&eacute; supprimé</h2>
