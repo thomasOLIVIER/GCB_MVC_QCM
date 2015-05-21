@@ -81,6 +81,8 @@
             <li class="smenu">
             <a href="index.php?uc=connexion&action=deconnexion" title="Se déconnecter">D&eacute;connexion</a>
             </li>
+            
+            
             <?php
         }
         if ($_SESSION['etat'] == 'Employe') {
@@ -89,19 +91,48 @@
             <?php echo $_SESSION['prenom'] . " " . $_SESSION['nom']; ?>
             <br/>
             <br/>
-            </li>
-            <li class="smenu">
-                <a href="index.php?uc=validationFicheFrais&action=selectionnerVisiteur" title="Passer un QCM">Passer un QCM</a>
-            </li>
-            <li class="smenu">
-                <a href="index.php?uc=suiviPaiement&action=selectionnerFrais" title="Consulter résultat">résultat</a>
-            </li>
-            <li class="smenu">
-                <a href="index.php?uc=suiviPaiement&action=selectionnerFrais" title="Mes statistiques">Mes statistiques</a>
-            </li>
-            <li class="smenu">
-            <a href="index.php?uc=connexion&action=deconnexion" title="Se déconnecter">D&eacute;connexion</a>
-            </li>
+
+            <ul class="ca-menu">
+                    <li>
+                        <a href="index.php?uc=validationFicheFrais&action=selectionnerVisiteur" title="Administration des thèmes">
+                            <div class="ca-content">
+                                <h2 class="ca-main">Passer</h2>
+                                <h3 class="ca-sub">un QCM</h3>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="index.php?uc=suiviPaiement&action=selectionnerFrais">
+                            <div class="ca-content">
+                                <h2 class="ca-main">résultat</h2>
+                                <h3 class="ca-sub"></h3>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="index.php?uc=suiviPaiement&action=selectionnerFrais" title="Mes statistiques">
+                            <div class="ca-content">
+                                <h2 class="ca-main">Mes statistiques</h2>
+                                <h3 class="ca-sub"></h3>
+                            </div>
+                        </a>
+                    </li>
+                 
+                    <li>
+                        <a href="index.php?uc=connexion&action=deconnexion">
+                            <div class="ca-content">
+                                <h2 class="ca-main">D&eacute;connexion</h2>
+                                <h3 class="ca-sub"></h3>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+            
+            
+            
+            
+            
             <?php
         }
         ?>
