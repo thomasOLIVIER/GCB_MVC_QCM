@@ -40,8 +40,7 @@
                 <td><?php echo $libelle?></td>
                 <td><a href="index.php?uc=gererTheme&action=supprimerTheme&identifiant=<?php echo $id ?>" 
 				onclick="return confirm('Voulez-vous vraiment supprimer ce thème?');"><img src=".\images\icones\b_drop1.png"/></a></td>
-                <td><a href="index.php?uc=gererQcm&action=saisirQcm" 
-				onclick="return confirm('Voulez-vous vraiment modifier ce thème?');"><img src=".\images\icones\b_edit1.png"/></a></td>
+                <td><a href="index.php?uc=gererQcm&action=saisirQcm&identifiant=<?php echo $id ?>" ><img src=".\images\icones\b_edit1.png"/></a></td>
              </tr>
 	<?php		 
           

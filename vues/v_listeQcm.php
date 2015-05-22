@@ -1,5 +1,5 @@
 ﻿<div id="contenu">
-    <form id="frmCreationFrais" action="index.php?uc=gererQcm&action=validerCreationQcm" method="post">
+    <form id="frmCreationFrais" action="index.php?uc=gererQcm&action=validerCreationQcm&identifiant=<?php echo $_GET['identifiant']?>" method="post">
         <div class="corpsForm">
             <fieldset>
                 <legend>Nouveau QCM</legend>
@@ -38,12 +38,14 @@
                 <td><?php echo $libelle?></td>
                 <td><a href="index.php?uc=gererQcm&action=supprimerQcm&identifiant=<?php echo $id ?>" 
 				onclick="return confirm('Voulez-vous vraiment supprimer ce QCM?');"><img src=".\images\icones\b_drop1.png"/></a></td>
-                <td><a href="index.php?uc=gererQcm&action=validerMajQcm&identifiant=<?php echo $id ?>" 
-				onclick="return confirm('Voulez-vous vraiment modifier ce QCM?');"><img src=".\images\icones\b_edit1.png"/></a></td>
+                <td><a href="index.php?uc=gererQuestion&action=saisirQuestion&identifiant=<?php echo $id ?>" ><img src=".\images\icones\b_edit1.png"/></a></td>
+                
              </tr>
+            
 	<?php		 
-          
+
           }
+          
 	?>
 </table>
 

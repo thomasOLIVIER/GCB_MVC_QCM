@@ -9,10 +9,10 @@ $identifiant = '';
 $libelle = '';
 
 switch($action) {
-    case 'saisirTheme':
-        if($pdo->estPremierFraisMois($idUtilisateur, $mois)) {
-            $pdo->creeNouvellesLignesFrais($idUtilisateur, $mois);
-        }
+    case 'saisirQuestion':
+        $idQcm = htmlspecialchars($_GET['identifiant']);
+        $lesQuestions = $pdo->getLesQuestions($idQcm);
+        include("vues/v_listeQuestion.php");
         break;
     case 'validerMajTheme':
         $lesFrais = $_POST['txtIdFrais'];
@@ -25,18 +25,24 @@ switch($action) {
             unset($_SESSION['erreurs']);
         }
         break;
-    case 'validerCreationTheme':
+    case 'validerCreationQuestion':
         $libelle = htmlspecialchars($_POST['txtLibelleHF']);
-        $pdo->creeNouveauTheme($libelle);
+        $idQcm = htmlspecialchars($_GET['identifiant']);
+        $pdo->creeNouvelleQuestion($libelle, $idQcm);
+        
+        $lesQuestions = $pdo->getLesQuestions($idQcm);
+        include("vues/v_listeQuestion.php");
         break;
-    case 'supprimerTheme':
+    case 'supprimerQuestion':
         $identifiant = htmlspecialchars($_GET['identifiant']);
-        $pdo->supprimerTheme($identifiant);
+        $pdo->supprimerQuestion($identifiant);
+        
+        $idQcm = htmlspecialchars($_GET['identifiant']);
+        $lesQuestions = $pdo->getLesQuestions($idQcm);
+        include("vues/v_listeQuestion.php");
         break;
 }
 
-$lesThemes = $pdo->getLesThemes($identifiant, $libelle);
-include("vues/v_listeTheme.php");
 
 ?>
 ?>

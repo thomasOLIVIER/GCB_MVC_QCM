@@ -151,10 +151,10 @@ class PdoQcm{
      * @param $libelle
      * @return tous les champs des lignes de QCM sous la forme d'un tableau associatif 
     */
-    public function getLesQcm($identifiant,$libelle,$idTheme) {
-        $sql = "SELECT * FROM qcm";
+    public function getLesQcm($idTheme) {
+        $sql = "SELECT * FROM qcm WHERE idTheme = :idTheme";
         $req = PdoQcm::$monPdo->prepare($sql);
-        $req->execute(array('identifiant' => $identifiant, 'libelle' => $libelle, 'idTheme' => $idTheme));
+        $req->execute(array('idTheme' => $idTheme));
         $lesLignes = $req->fetchAll();
         $req->closeCursor();
 
@@ -162,9 +162,7 @@ class PdoQcm{
         return $lesLignes;
     }
     
-    
-    
-    
+      
            /**
      * OLIVIER Thomas
      * Retourne sous forme d'un tableau associatif toutes les questions
@@ -177,10 +175,10 @@ class PdoQcm{
      * @param $libelle
      * @return tous les champs des lignes de QCM sous la forme d'un tableau associatif 
     */
-    public function getLesQuestions($identifiant,$libelle,$idQcm) {
-        $sql = "SELECT * FROM question";
+    public function getLesQuestions($idQcm) {
+        $sql = "SELECT * FROM question Where idQcm = :idQcm";
         $req = PdoQcm::$monPdo->prepare($sql);
-        $req->execute(array('identifiant' => $identifiant, 'libelle' => $libelle, 'idQcm' => $idQcm));
+        $req->execute(array('idQcm' => $idQcm));
         $lesLignes = $req->fetchAll();
         $req->closeCursor();
 
@@ -201,10 +199,10 @@ class PdoQcm{
      * @param $libelle
      * @return tous les champs des lignes de QCM sous la forme d'un tableau associatif 
     */
-    public function getLesReponses($identifiant,$libelle,$idQuestion) {
-        $sql = "SELECT * FROM reponse";
+    public function getLesReponses($idQuestion) {
+        $sql = "SELECT * FROM reponse Where idQuestion = :idQuestion";
         $req = PdoQcm::$monPdo->prepare($sql);
-        $req->execute(array('identifiant' => $identifiant, 'libelle' => $libelle, 'idQuestion' => $idQuestion));
+        $req->execute(array('idQuestion' => $idQuestion));
         $lesLignes = $req->fetchAll();
         $req->closeCursor();
 
@@ -254,6 +252,29 @@ class PdoQcm{
         $sql = "INSERT INTO theme VALUES('', :libelle)";
         $req = PdoQcm::$monPdo->prepare($sql);
         $req->execute(array('libelle' => $libelle));
+        $req->closeCursor();
+    }
+    
+    
+    public function creeNouveauQCM($libelle,$idTheme) {
+        $sql = "INSERT INTO qcm VALUES('', :libelle, :idTheme)";
+        $req = PdoQcm::$monPdo->prepare($sql);
+        $req->execute(array('libelle' => $libelle, 'idTheme' => $idTheme));
+        $req->closeCursor();
+    }
+    
+    
+    public function creeNouvelleQuestion($libelle, $idQcm) {
+        $sql = "INSERT INTO question VALUES('', :libelle, :idQcm)";
+        $req = PdoQcm::$monPdo->prepare($sql);
+        $req->execute(array('libelle' => $libelle, 'idQcm' => $idQcm));
+        $req->closeCursor();
+    }
+    
+        public function creeNouvelleReponse($libelle, $exacte, $idQuestion) {
+        $sql = "INSERT INTO reponse VALUES('', :libelle, :exacte, :idQuestion)";
+        $req = PdoQcm::$monPdo->prepare($sql);
+        $req->execute(array('libelle' => $libelle, 'exacte' => $exacte, 'idQuestion' => $idQuestion));
         $req->closeCursor();
     }
     
